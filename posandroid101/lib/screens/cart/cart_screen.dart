@@ -24,14 +24,14 @@ class CartScreen extends StatelessWidget {
       body: Column(
         children: [
           AppbarWidget(
-              leadingText: 'ยกเลิกรายการ',
-              title: 'Cart',
-              leadingClicked: () {
-                FirebaseAnalytics.instance
-                    .logEvent(name: 'cancel', parameters: {'orderNo': '0014'});
+            leadingText: 'ยกเลิกรายการ',
+            title: 'Cart',
+            leadingClicked: () {
+              FirebaseAnalytics.instance.logEvent(name: 'cancel', parameters: {'orderNo': '0014'});
 
-                Get.back();
-              }),
+              Get.back();
+            },
+          ),
           // Padding(
           //   padding: const EdgeInsets.only(
           //     left: Styles.padding,
@@ -63,10 +63,11 @@ class CartScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                left: Styles.padding,
-                right: Styles.padding,
-                bottom: Styles.padding,
-                top: Styles.padding / 2),
+              left: Styles.padding,
+              right: Styles.padding,
+              bottom: Styles.padding,
+              top: Styles.padding / 2,
+            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:posandroid101/constants/styles.dart';
+import 'package:posandroid101/controllers/payment_controller.dart';
 import 'package:posandroid101/routes/app_pages.dart';
 import 'package:posandroid101/widgets/appbar_widget.dart';
 import 'package:posandroid101/widgets/button_widget.dart';
@@ -11,7 +12,10 @@ class PaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> methods = ['True Money Wallet', 'Prompt Pay'];
+    Get.lazyPut(() => PaymentController());
+    PaymentController paymentController = Get.find();
+
+    List<String> methods = ['True Money Wallet', 'QR Prompt Pay'];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -54,11 +58,13 @@ class PaymentScreen extends StatelessWidget {
                   colorPrimary: Colors.black.withOpacity(0.1),
                   borderColor: Colors.transparent,
                   onClicked: () {
+                    String methodName = methods[index];
                     FirebaseAnalytics.instance.logEvent(
                       name: 'payment_method',
-                      parameters: {'type': methods[index]},
+                      parameters: {'type': methodName},
                     );
 
+                    paymentController.activeMethod(methodName);
                     Get.offAllNamed(Routes.succeed);
                   },
                   style: Styles.title,
