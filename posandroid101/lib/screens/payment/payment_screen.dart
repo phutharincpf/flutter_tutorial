@@ -8,17 +8,17 @@ import 'package:posandroid101/widgets/button_widget.dart';
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key}) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
-
     List<String> methods = ['TrueMoney Wallet', 'Prompt Pay'];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          const AppbarWidget(leadingText: 'กลับ'),
+          const AppbarWidget(
+            leadingText: 'กลับ',
+            title: 'Payment',
+          ),
           Container(
             padding: const EdgeInsets.only(top: 40, bottom: 10),
             child: Row(
@@ -48,16 +48,18 @@ class PaymentScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: Styles.padding),
               itemCount: methods.length,
               itemBuilder: (BuildContext context, int index) {
-                return ButtonWidget(methods[index],
-                  colorPrimary: Colors.black.withOpacity(0.1), borderColor: Colors.transparent, onClicked: () {
-
+                return ButtonWidget(
+                  methods[index],
+                  colorPrimary: Colors.black.withOpacity(0.1),
+                  borderColor: Colors.transparent,
+                  onClicked: () {
                     Get.offAllNamed(Routes.succeed);
-                  }, style: Styles.title,
-
+                  },
+                  style: Styles.title,
                 );
               },
               separatorBuilder: (BuildContext context, int index) =>
-              const SizedBox(height: 8),
+                  const SizedBox(height: 8),
             ),
           )
         ],

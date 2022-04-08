@@ -35,15 +35,13 @@ class CartBodyWidget extends StatelessWidget {
                           children: [
                             Text(
                               '${index + 1}',
-                              style: const TextStyle(color: Colors.black54),
+                              style: Styles.title.copyWith(color: Colors.black54, fontWeight: FontWeight.normal),
                             ),
                             const SizedBox(width: 5),
                             Expanded(
                               child: Text(
                                 "โกโก้ คลาวด์ มัคคิอาโต $fullWidth",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: Styles.title,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 softWrap: true,

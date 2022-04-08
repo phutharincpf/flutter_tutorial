@@ -26,14 +26,12 @@ class AppbarWidget extends StatelessWidget {
       color: Styles.appbarColor,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(
-              left: Styles.padding / 2,
-              right: Styles.padding,
-              bottom: Styles.padding / 2),
+          padding: const EdgeInsets.symmetric(vertical: Styles.padding/2, horizontal: Styles.padding),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Expanded(
+                flex: 25,
                 child: _automaticallyImplyLeading == true
                     ? GestureDetector(
                         onTap: leadingClicked ?? () => Get.back(),
@@ -44,33 +42,42 @@ class AppbarWidget extends StatelessWidget {
                               width: 24,
                               height: 24,
                               child: Center(
-                                  child: Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                                size: 16,
-                              )),
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                  size: 22,
+                                ),
+                              ),
                             ),
-                            const SizedBox(width: 2),
-                            Text(
-                              leadingText ?? 'กลับ',
-                              style: Styles.text.copyWith(color: Colors.white, height: 1),
-                            )
+                            leadingText!=null ? const SizedBox(width: 2): Container(),
+                            leadingText!=null ? Expanded(
+                              child: Text(
+                                leadingText!,
+                                style: Styles.text
+                                    .copyWith(color: Colors.white, height: 1.2),
+                                maxLines: 1,
+                                overflow: TextOverflow.clip,
+                                softWrap: true,
+                              ),
+                            ) : Container(),
+                            const SizedBox(width: 6),
                           ],
                         ),
                       )
                     : Container(),
               ),
               Expanded(
-                child: Text(
-                  title ?? 'POS Android 101',
+                flex: 50,
+                child: title!=null ? Text(
+                  title!,
                   style: Styles.title.copyWith(color: Colors.white),
                   textAlign: TextAlign.center,
                   softWrap: true,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                ),
+                ): Container(),
               ),
-              Expanded(child: Container()),
+              Expanded(flex: 25,child: Container()),
             ],
           ),
         ),

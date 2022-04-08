@@ -23,39 +23,50 @@ class CartScreen extends StatelessWidget {
       // ),
       body: Column(
         children: [
-          AppbarWidget(leadingText: 'ยกเลิก', leadingClicked: () {
-            FirebaseAnalytics.instance.logEvent(name: 'cancel', parameters: {
-              'orderNo': '0014'
-            });
+          AppbarWidget(
+              leadingText: 'ยกเลิกรายการ',
+              title: 'Cart',
+              leadingClicked: () {
+                FirebaseAnalytics.instance
+                    .logEvent(name: 'cancel', parameters: {'orderNo': '0014'});
 
-            Get.back();
-          }),
-          Padding(
-            padding: const EdgeInsets.only(left: Styles.padding, right: Styles.padding, top: Styles.padding, bottom: Styles.padding / 2),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Cart',
-                  style: Styles.title,
-                ),
-                ButtonWidget(
-                  'ระบุรหัสสินค้า',
-                  onClicked: () {},
-                  buttonHeight: 50,
-                  style: const TextStyle(color: Colors.red),
-                  colorPrimary: Colors.white,
-                  borderColor: Colors.red,
-                ),
-              ],
-            ),
-          ),
+                Get.back();
+              }),
+          // Padding(
+          //   padding: const EdgeInsets.only(
+          //     left: Styles.padding,
+          //     right: Styles.padding,
+          //     top: Styles.padding / 2,
+          //     bottom: (Styles.padding / 2) - 5,
+          //   ),
+          //   child: Row(
+          //     crossAxisAlignment: CrossAxisAlignment.center,
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text(
+          //         '',
+          //         style: Styles.title,
+          //       ),
+          //       ButtonWidget(
+          //         'ระบุรหัสสินค้า',
+          //         onClicked: () {},
+          //         buttonHeight: 40,
+          //         style: const TextStyle(color: Colors.red),
+          //         colorPrimary: Colors.white,
+          //         borderColor: Colors.red,
+          //       ),
+          //     ],
+          //   ),
+          // ),
           const Expanded(
             child: CartBodyWidget(),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: Styles.padding, right: Styles.padding, bottom: Styles.padding, top: Styles.padding / 2),
+            padding: const EdgeInsets.only(
+                left: Styles.padding,
+                right: Styles.padding,
+                bottom: Styles.padding,
+                top: Styles.padding / 2),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,10 +107,8 @@ class CartScreen extends StatelessWidget {
                   child: ButtonWidget(
                     'ชำระเงิน',
                     onClicked: () {
-
-                      FirebaseAnalytics.instance.logEvent(name: 'payment', parameters: {
-                        'price': '970'
-                      });
+                      FirebaseAnalytics.instance.logEvent(
+                          name: 'payment', parameters: {'price': '970'});
 
                       Get.toNamed(Routes.payment);
                     },

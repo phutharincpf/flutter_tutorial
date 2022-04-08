@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppbarWidget(automaticallyImplyLeading: false),
+          const AppbarWidget(automaticallyImplyLeading: false, title: 'POS 101',),
           const Expanded(child: Text('')),
           Padding(
             padding: const EdgeInsets.all(15.0),
@@ -26,17 +26,17 @@ class HomeScreen extends StatelessWidget {
                   child: ButtonWidget(
                     'ลูกค้าทั่วไป',
                     onClicked: () {
+                      FirebaseAnalytics.instance.logEvent(
+                        name: 'customer',
+                        parameters: {'type': 'ลูกค้าทั่วไป'},
+                      );
 
-                      FirebaseAnalytics.instance.logEvent(name: 'customer', parameters: {
-                        'type': 'ลูกค้าทั่วไป'
-                      });
-                      
                       Get.toNamed(Routes.cart);
                     },
                     buttonHeight: 50,
-                    style: const TextStyle(color: Colors.red),
+                    style: TextStyle(color: Styles.colorPrimary),
                     colorPrimary: Colors.white,
-                    borderColor: Colors.red,
+                    borderColor: Styles.colorPrimary,
                   ),
                 ),
                 const SizedBox(width: 15),
@@ -44,17 +44,16 @@ class HomeScreen extends StatelessWidget {
                   child: ButtonWidget(
                     'ลูกค้าสมาชิก',
                     onClicked: () {
-
-                      FirebaseAnalytics.instance.logEvent(name: 'customer', parameters: {
-                        'type': 'ลูกค้าสมาชิก'
-                      });
+                      FirebaseAnalytics.instance.logEvent(
+                          name: 'customer',
+                          parameters: {'type': 'ลูกค้าสมาชิก'});
 
                       Get.toNamed(Routes.cart);
                     },
                     buttonHeight: 50,
-                    style: const TextStyle(color: Colors.red),
+                    style: TextStyle(color: Styles.colorPrimary),
                     colorPrimary: Colors.white,
-                    borderColor: Colors.red,
+                    borderColor: Styles.colorPrimary,
                   ),
                 ),
               ],

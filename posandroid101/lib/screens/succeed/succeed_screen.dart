@@ -39,7 +39,7 @@ class SucceedScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          const AppbarWidget(automaticallyImplyLeading: false),
+          const AppbarWidget(automaticallyImplyLeading: false, title: 'Payment'),
           const SizedBox(height: 30),
           const Center(
             child: Icon(

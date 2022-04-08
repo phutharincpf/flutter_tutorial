@@ -1,6 +1,8 @@
+import 'package:posandroid101/constants/styles.dart';
 import 'package:posandroid101/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:posandroid101/widgets/appbar_widget.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,10 +11,20 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _validateAuthenticationAndRedirect();
 
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Text('กำลังโหลด...'),
+    return Scaffold(
+      backgroundColor: Styles.mainColor,
+      body: Column(
+        children: const [
+          AppbarWidget(
+            automaticallyImplyLeading: false,
+            title: 'POS 101',
+          ),
+          Expanded(
+            child: Center(
+              child: Text('กำลังโหลด...'),
+            ),
+          ),
+        ],
       ),
     );
   }
