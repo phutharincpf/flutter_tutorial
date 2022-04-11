@@ -1,3 +1,4 @@
+import 'package:posandroid101/bindings/shopping_binding.dart';
 import 'package:posandroid101/screens/cart/cart_screen.dart';
 import 'package:posandroid101/screens/home/home_screen.dart';
 import 'package:posandroid101/screens/payment/payment_screen.dart';
@@ -24,7 +25,9 @@ class AppRouter {
     GetPage(
       name: Routes.cart,
       page: () => const CartScreen(),
-    ),GetPage(
+      binding: ShoppingBinding(),
+    ),
+    GetPage(
       name: Routes.payment,
       page: () => const PaymentScreen(),
     ),

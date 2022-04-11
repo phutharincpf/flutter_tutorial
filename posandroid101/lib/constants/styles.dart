@@ -21,7 +21,7 @@ class Styles {
   static TextStyle baseFontFamily               = TextStyle(fontFamily: fontFamilyName);
   static TextStyle text                         = baseFontFamily.copyWith(fontSize: 16, height: 1.3, color: textColor);
   static TextStyle title                        = text.copyWith(fontWeight: FontWeight.w600, fontSize: 20);
-  static TextStyle subtitle                     = text.copyWith(color: textSecondary);
+  static TextStyle subtitle                     = text.copyWith(color: Colors.grey);
 
 
   // Button
