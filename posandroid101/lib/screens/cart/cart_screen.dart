@@ -96,22 +96,24 @@ class CartScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    const Text('รวมทั้งสิ้น: 10 หน่วย')
+                    const SizedBox(height: 8),
+                    Text('รวมทั้งสิ้น: 10 หน่วย', style: Styles.subtitle,)
                   ],
                 ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minWidth: 180.0,
-                  ),
-                  child: ButtonWidget(
-                    'ชำระเงิน',
-                    onClicked: () {
-                      FirebaseAnalytics.instance.logEvent(
-                          name: 'payment', parameters: {'price': '970'});
-
-                      Get.toNamed(Routes.payment);
-                    },
+                const SizedBox(width: 10),
+                Expanded(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 180.0,
+                    ),
+                    child: ButtonWidget(
+                      'ชำระเงิน',
+                      buttonHeight: 55,
+                      onClicked: () {
+                        FirebaseAnalytics.instance.logEvent(name: 'payment', parameters: {'price': '970'});
+                        Get.toNamed(Routes.payment);
+                      },
+                    ),
                   ),
                 ),
               ],
