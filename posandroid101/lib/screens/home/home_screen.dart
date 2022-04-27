@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppbarWidget(automaticallyImplyLeading: false, title: 'POS 101',),
+          const AppbarWidget(automaticallyImplyLeading: false, title: 'Home'),
           const Expanded(child: Text('')),
           Padding(
             padding: const EdgeInsets.all(15.0),

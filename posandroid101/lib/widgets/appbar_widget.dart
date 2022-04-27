@@ -38,13 +38,13 @@ class AppbarWidget extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const SizedBox(
+                            SizedBox(
                               width: 24,
                               height: 24,
                               child: Center(
                                 child: Icon(
                                   Icons.arrow_back,
-                                  color: Colors.white,
+                                  color: Styles.appbarTextColor,
                                   size: 22,
                                 ),
                               ),
@@ -54,7 +54,7 @@ class AppbarWidget extends StatelessWidget {
                               child: Text(
                                 leadingText!,
                                 style: Styles.text
-                                    .copyWith(color: Colors.white, height: 1.2),
+                                    .copyWith(color: Styles.appbarTextColor, height: 1.2),
                                 maxLines: 1,
                                 overflow: TextOverflow.clip,
                                 softWrap: true,
@@ -70,7 +70,7 @@ class AppbarWidget extends StatelessWidget {
                 flex: 50,
                 child: title!=null ? Text(
                   title!,
-                  style: Styles.title.copyWith(color: Colors.white),
+                  style: Styles.title.copyWith(color: Styles.appbarTextColor),
                   textAlign: TextAlign.center,
                   softWrap: true,
                   maxLines: 1,
