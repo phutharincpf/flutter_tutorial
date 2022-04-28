@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -42,6 +43,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
 
       bool isLoginSuccess = await userController.login(_usernameValue, _passwordValue);
       if (isLoginSuccess) {
+
+        FirebaseAnalytics.instance.logEvent(
+          name: 'auth',
+          parameters: {'type': 'login'},
+        );
+
         Get.offAllNamed(Routes.home);
       } else {
         Get.dialog(const ModalWidget(
