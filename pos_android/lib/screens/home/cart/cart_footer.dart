@@ -38,7 +38,7 @@ class CartFooter extends StatelessWidget {
                 name: 'payment',
                 parameters: {'type': 'ชำระเงิน'},
               );
-              
+
               Get.toNamed(Routes.payment);
             },
             style:
