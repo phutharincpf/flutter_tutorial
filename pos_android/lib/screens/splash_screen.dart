@@ -10,9 +10,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _validateAuthenticationAndRedirect(context);
 
-    // if(!context.isTablet ){
-    //   Get.offAllNamed(Routes.errorDevice);
-    // }
+    if(!context.isTablet ){
+      Get.offAllNamed(Routes.errorDevice);
+    }
 
     return Scaffold(
       backgroundColor: Styles.mainColor,
