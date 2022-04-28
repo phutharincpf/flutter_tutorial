@@ -69,6 +69,8 @@ class ButtonWidget extends StatelessWidget {
         child: _getTextWidget(),
       );
 
+      return _text;
+
       if( buttonHeight==null ){
         return _text;
       }
@@ -85,7 +87,7 @@ class ButtonWidget extends StatelessWidget {
         elevation: 0,
         primary: _getColorPrimary(),
         padding: EdgeInsets.symmetric(horizontal: paddingHorizontal ?? Styles.buttonPaddingHorizontal, vertical: paddingVertical ?? Styles.buttonPaddingVertical),
-        minimumSize: const Size(0, 0),
+        // minimumSize: const Size(0, 0),
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: borderWidth ?? 1,

@@ -23,18 +23,21 @@ class Styles {
   static double fontSizeJumbo                       = 64;
 
   // Colors
-  static Color mainColor                        = Colors.white;
+  static Color mainColor                        = Colors.white; // const Color.fromRGBO(240,242,245, 1);
   static Color borderColor                      = const Color.fromRGBO(104, 120, 171, 1);
-  static Color textColor                        = Colors.black;
+  static Color textColor                        = const Color.fromRGBO(43,61,152, 1);
   static Color textSecondary                    = const Color.fromRGBO(104, 120, 171, 1);
 
-  static Color colorPrimary                     = const Color.fromRGBO(48,  122,  89, 1);
+  static Color colorPrimary                     = const Color.fromRGBO(43,61,152, 1);
   static Color colorLight                       = const Color.fromRGBO(216, 218, 223, 1);
   static Color colorDanger                      = const Color.fromRGBO(168, 7, 26, 1);
   static Color colorOutlineLight                = const Color.fromRGBO(255, 255, 255, 1);
   static Color colorSecondary                   = const Color.fromRGBO(104, 120, 171, 1);
   static Color colorSecondaryLight              = const Color.fromRGBO(209, 215, 231, 1);
   static Color colorGray                        = const Color.fromRGBO(140, 140, 140, 1);
+  static Color colorCancel                      = const Color.fromRGBO(177,4,13, 1);
+  static Color colorSuccess                     = const Color.fromRGBO(42,128,0, 1);
+  static Color colorInfo                        = const Color.fromRGBO(0, 132, 255, 1);
 
 
   // Font
@@ -43,7 +46,7 @@ class Styles {
   static TextStyle text                         = baseFontFamily.copyWith(fontSize: fontSize, height: 1, color: textColor);
   static TextStyle textSmall                    = text.copyWith(fontSize: fontSizeSmall);
   static TextStyle textMuted                    = text.copyWith(color: const Color.fromRGBO(112,122,138, 1));
-  static TextStyle title                        = text.copyWith(fontWeight: FontWeight.w600);
+  static TextStyle title                        = text.copyWith(fontWeight: FontWeight.w600, fontSize: fontSizeMedium);
   static TextStyle subTitle                     = text.copyWith(color: Colors.black87);
   static TextStyle subText                      = textMuted.copyWith(fontSize: fontSizeSmall);
   static TextStyle textLarge                    = text.copyWith(fontSize: fontSizeLarge, height: 1.3);
@@ -60,15 +63,16 @@ class Styles {
   static const double buttonMediumHeight        = 56;
   static const double buttonLargeHeight         = 72;
   static const double buttonPaddingHorizontal   = 15;
-  static const double buttonPaddingVertical     = 10;
+  static const double buttonPaddingVertical     = 18;
 
   static TextStyle button                       = text.copyWith(fontWeight: FontWeight.w600);
   static TextStyle buttonDisabled               = button.copyWith(color: textSecondary);
-  static TextStyle buttonPrimary                = button.copyWith(color: colorPrimary);
+  static TextStyle buttonPrimary                = button.copyWith(color: Colors.white);
   static Color buttonPrimaryColor               = colorPrimary;
 
-  static TextStyle buttonCancel                 = button.copyWith(color: colorPrimary);
-  static Color buttonCancelBorderColor          = colorPrimary;
+  static TextStyle buttonCancel                 = button.copyWith(color: Colors.white);
+  static TextStyle buttonSuccess                = button.copyWith(color: Colors.white);
+  static Color buttonCancelBorderColor          = colorCancel;
 
   static double btnRadius                       = radius;
 

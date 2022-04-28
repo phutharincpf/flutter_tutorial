@@ -15,7 +15,10 @@ abstract class Routes {
   static const home           = _Paths.home;
   static const cart           = _Paths.cart;
   static const payment        = _Paths.payment;
-  static const succeed        = _Paths.succeed;
+  static const paymentDone    = _Paths.paymentDone;
+
+
+  static const errorDevice    = _Paths.errorDevice;
 
 
   // DataMaster
@@ -31,11 +34,14 @@ abstract class _Paths {
   static const register         = '/register';
   static const logout           = '/logout';
 
+  // error
+  static const errorDevice      = '/error/device';
+
   // basic
   static const home             = '/home';
   static const cart             = '/cart';
   static const payment          = '/payment';
-  static const succeed          = '/succeed';
+  static const paymentDone      = '/payment/done';
 
   // menu
   static const syncDataMaster   = '/master/sync';

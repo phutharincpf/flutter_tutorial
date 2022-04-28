@@ -8,18 +8,27 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _validateAuthenticationAndRedirect();
+    _validateAuthenticationAndRedirect(context);
+
+
 
     return Scaffold(
       backgroundColor: Styles.mainColor,
-      body: const Center(
-        child: Text('กำลังโหลด...'),
+      body: Center(
+        child: Text('กำลังโหลด...', style: Styles.title),
       ),
     );
   }
 
-  void _validateAuthenticationAndRedirect() async {
+  void _validateAuthenticationAndRedirect(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 3), () {});
-    Get.offAllNamed(Routes.login);
+
+
+    if( !context.isTablet ){
+      Get.offAllNamed(Routes.errorDevice);
+    }
+    else {
+      Get.offAllNamed(Routes.login);
+    }
   }
 }

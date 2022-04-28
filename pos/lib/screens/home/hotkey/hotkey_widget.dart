@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/home/hotkey/hotkey_cetagory.dart';
 
-class HotkeyWidget extends StatelessWidget {
-  const HotkeyWidget({Key? key}) : super(key: key);
+class HotkeyLayout extends StatelessWidget {
+  const HotkeyLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Center(
-        child: Text('Hotkey'),
+      child: Column(
+        children: [
+          const HotkeyCategory(),
+          Expanded(child: Container())
+        ],
       ),
     );
   }

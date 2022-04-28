@@ -33,7 +33,7 @@ class HomeHeader extends StatelessWidget {
                     ),
                     child: Center(
                       child: SvgPicture.asset(
-                        PosIcons.menuPage,
+                        PosIcons.menuPath,
                         fit: BoxFit.cover,
                         height: 28,
                         width: 28,

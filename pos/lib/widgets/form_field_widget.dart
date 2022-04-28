@@ -20,6 +20,8 @@ class FormFieldWidget extends StatelessWidget {
     this.focusNode,
     this.keyboardType,
     this.inputFormatters,
+    this.borderWidth,
+    this.enabledBorderColor,
     ValueChanged<String>? onFieldSubmitted,
   }) : super(key: key);
 
@@ -38,6 +40,8 @@ class FormFieldWidget extends StatelessWidget {
   final FocusNode? focusNode;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final double? borderWidth;
+  final Color? enabledBorderColor;
 
   void onChangedHandler(value) {
     if (onChanged != null) {
@@ -78,35 +82,35 @@ class FormFieldWidget extends StatelessWidget {
               vertical: Styles.formPadding,
             ),
             border: OutlineInputBorder(
-              borderSide: const BorderSide(
-                width: Styles.formBorderWidth,
+              borderSide: BorderSide(
+                width: borderWidth ?? Styles.formBorderWidth,
               ),
               borderRadius: BorderRadius.circular(Styles.formBorderRadius),
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                width: Styles.formBorderWidth,
-                color: Styles.formBorderColor,
+                width: borderWidth ?? Styles.formBorderWidth,
+                color: enabledBorderColor ?? Styles.formBorderColor,
               ),
               borderRadius: BorderRadius.circular(Styles.formBorderRadius),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                width: Styles.formBorderWidth,
+                width: borderWidth ?? Styles.formBorderWidth,
                 color: Styles.formFocusedBorderColor,
               ),
               borderRadius: BorderRadius.circular(Styles.formBorderRadius),
             ),
             disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                width: Styles.formBorderWidth,
+                width: borderWidth ?? Styles.formBorderWidth,
                 color: Styles.formDisabledBorderColor,
               ),
               borderRadius: BorderRadius.circular(Styles.formBorderRadius),
             ),
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                width: 2,
+                width: borderWidth ?? Styles.formBorderWidth,
                 color: Styles.formBorderErrorColor,
               ),
               borderRadius: BorderRadius.circular(Styles.formBorderRadius),
