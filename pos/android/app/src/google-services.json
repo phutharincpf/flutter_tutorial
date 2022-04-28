@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "378480539258",
+    "project_id": "cpf-pos-android",
+    "storage_bucket": "cpf-pos-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378480539258:android:5c4ae548ddbed57ede2dc3",
+        "android_client_info": {
+          "package_name": "th.co.cpf.posandroid.pos_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378480539258-jg9es4u33b5bdp1lk5k3pk3p98ekd150.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW_pcKdlRcSjeduzILuxXOp2a-MBfj6Hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378480539258-jg9es4u33b5bdp1lk5k3pk3p98ekd150.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
