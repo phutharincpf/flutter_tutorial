@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos_android/constants/styles.dart';
@@ -17,7 +18,6 @@ class CartFooter extends StatelessWidget {
           child: ButtonCancel(
             'ยกเลิกการขาย',
             onClicked: () {
-
               Get.dialog(const ModalWidget(
                 icon: 'warning',
                 title: 'ขออภัย!!',
@@ -25,7 +25,6 @@ class CartFooter extends StatelessWidget {
                 doneText: 'ตกลง',
                 isCancel: false,
               ));
-
             },
             style: Styles.buttonCancel.copyWith(fontSize: Styles.fontSizeLarge),
           ),
@@ -35,7 +34,11 @@ class CartFooter extends StatelessWidget {
           child: ButtonSuccess(
             'ชำระเงิน',
             onClicked: () {
-
+              FirebaseAnalytics.instance.logEvent(
+                name: 'payment',
+                parameters: {'type': 'ชำระเงิน'},
+              );
+              
               Get.toNamed(Routes.payment);
             },
             style:
