@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class Styles {
 
   // Colors
-  static Color mainColor                        = const Color.fromRGBO(240, 242, 245, 1);
+  static Color mainColor                        = Colors.white;
   static Color borderColor                      = const Color.fromRGBO(104, 120, 171, 1);
   static Color textColor                        = Colors.black;
   static Color textSecondary                    = const Color.fromRGBO(104, 120, 171, 1);
 
-  static Color colorPrimary                     = const Color.fromRGBO(0, 150, 76, 1);
+  static Color colorPrimary                     = const Color.fromRGBO(48,  122,  89, 1);
   static Color colorLight                       = const Color.fromRGBO(216, 218, 223, 1);
   static Color colorDanger                      = const Color.fromRGBO(168, 7, 26, 1);
   static Color colorOutlineLight                = const Color.fromRGBO(255, 255, 255, 1);
@@ -33,7 +33,8 @@ class Styles {
   static TextStyle textButtonDisabled           = textButton.copyWith(color: textSecondary);
 
   // appbar
-  static Color appbarColor                      = colorPrimary;
+  static Color appbarColor                      = Colors.white;
+  static Color appbarTextColor                  = textColor;
 
 
   // reset
