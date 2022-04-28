@@ -10,7 +10,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _validateAuthenticationAndRedirect(context);
 
-
+    // if(!context.isTablet ){
+    //   Get.offAllNamed(Routes.errorDevice);
+    // }
 
     return Scaffold(
       backgroundColor: Styles.mainColor,
@@ -23,12 +25,13 @@ class SplashScreen extends StatelessWidget {
   void _validateAuthenticationAndRedirect(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 3), () {});
 
-
-    if( !context.isTablet ){
-      Get.offAllNamed(Routes.errorDevice);
-    }
-    else {
-      Get.offAllNamed(Routes.login);
-    }
+    Get.offAllNamed(Routes.login);
+    //
+    // if( !context.isTablet ){
+    //   Get.offAllNamed(Routes.errorDevice);
+    // }
+    // else {
+    //   Get.offAllNamed(Routes.login);
+    // }
   }
 }
