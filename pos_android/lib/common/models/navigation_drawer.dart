@@ -22,40 +22,40 @@ class NavigationDrawer extends StatelessWidget {
             _buildDrawerHeader(),
             Expanded(
               child: Obx(() => ListView.builder(
-                // padding: const EdgeInsets.all(8),
-                itemCount: uiController.navigationList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  MenuPayload menu = uiController.navigationList[index];
+                    // padding: const EdgeInsets.all(8),
+                    itemCount: uiController.navigationList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      MenuPayload menu = uiController.navigationList[index];
 
-                  if (menu.isDivider == true) {
-                    return Container(
-                      width: double.infinity,
-                      height: 1,
-                      color: Colors.black12,
-                    );
-                  } else {
-                    return _buildDrawerItem(
-                      // icon: Icons.photo,
-                      imagePath: menu.svgPath,
-                      text: menu.nameLocal,
-                      onTap: () {
-                        Get.back();
+                      if (menu.isDivider == true) {
+                        return Container(
+                          width: double.infinity,
+                          height: 1,
+                          color: Colors.black12,
+                        );
+                      } else {
+                        return _buildDrawerItem(
+                          // icon: Icons.photo,
+                          imagePath: menu.svgPath,
+                          text: menu.nameLocal,
+                          onTap: () {
+                            Get.back();
+                            uiController.activeNavigation(menu);
+                          },
+                          tileColor: Get.currentRoute == menu.route
+                              ? Styles.drawerTextColorActive
+                              : null,
+                          textIconColor: Get.currentRoute == menu.route
+                              ? Styles.drawerIconColorActive
+                              : Styles.drawerIconColor,
 
-                      },
-                      tileColor: Get.currentRoute == menu.pathname
-                          ? Styles.drawerTextColorActive
-                          : null,
-                      textIconColor: Get.currentRoute == menu.pathname
-                          ? Styles.drawerIconColorActive
-                          : Styles.drawerIconColor,
-
-                      bgColor: Get.currentRoute == menu.pathname
-                          ? Styles.drawerActiveColor
-                          : Styles.drawerColor,
-                    );
-                  }
-                },
-              )),
+                          bgColor: Get.currentRoute == menu.route
+                              ? Styles.drawerActiveColor
+                              : Styles.drawerColor,
+                        );
+                      }
+                    },
+                  )),
             ),
           ],
         ),
@@ -67,9 +67,8 @@ class NavigationDrawer extends StatelessWidget {
     return Container(height: 50, color: Styles.appbarColor);
   }
 
-  _buildDrawerItem ({
+  _buildDrawerItem({
     required String text,
-    IconData? icon,
     required Color textIconColor,
     required Color? tileColor,
     required Color? bgColor,
@@ -91,18 +90,18 @@ class NavigationDrawer extends StatelessWidget {
             imagePath == null
                 ? const SizedBox()
                 : Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: SizedBox(
-                height: 24,
-                width: 24,
-                child: SvgPicture.asset(
-                  imagePath,
-                  height: 24,
-                  width: 24,
-                  color: textIconColor,
-                ),
-              ),
-            ),
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: SvgPicture.asset(
+                        imagePath,
+                        height: 24,
+                        width: 24,
+                        color: textIconColor,
+                      ),
+                    ),
+                  ),
             Text(
               text,
               style: Styles.drawer,

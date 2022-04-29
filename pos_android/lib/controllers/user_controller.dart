@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pos_android/widgets/modal_widget.dart';
 
 class UserController extends GetxController {
 

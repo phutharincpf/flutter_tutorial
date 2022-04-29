@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:pos_android/constants/pos_icons.dart';
 import 'package:pos_android/constants/styles.dart';
+import 'package:pos_android/controllers/master_controller.dart';
+import 'package:pos_android/screens/home/widgets/home_header_status.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({Key? key}) : super(key: key);
@@ -66,10 +69,10 @@ class HomeHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'ภุชงค์ สวนแจ้ง : ร้านนี้ขายดีดี',
+                      'ร้านนี้ขายดีดี : ภุชงค์ สวนแจ้ง',
                       style: Styles.title,
                     ),
-                    Text('สถานะ', style: Styles.textSmall),
+                    const HomeHeaderStatus(),
                   ],
                 )
               ],

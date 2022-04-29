@@ -12,6 +12,7 @@ class PaymentMenu extends StatelessWidget {
     menus.add({'name': 'เงินสด'});
     menus.add({'name': 'True Money Wallet'});
     menus.add({'name': 'QR Prompt Pay'});
+    menus.add({'name': 'Gift Voucher'});
 
     return Container(
       height: 70,

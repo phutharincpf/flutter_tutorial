@@ -38,12 +38,14 @@ class Styles {
   static Color colorCancel                      = const Color.fromRGBO(177,4,13, 1);
   static Color colorSuccess                     = const Color.fromRGBO(42,128,0, 1);
   static Color colorInfo                        = const Color.fromRGBO(0, 132, 255, 1);
+  static Color colorGrey                        = const Color.fromRGBO(196,196,196, 1);
+  static Color colorWarning                     = const Color.fromRGBO(255,193,7, 1);
 
 
   // Font
   static String fontFamilyName                  = 'CPFImmSok';
   static TextStyle baseFontFamily               = TextStyle(fontFamily: fontFamilyName);
-  static TextStyle text                         = baseFontFamily.copyWith(fontSize: fontSize, height: 1, color: textColor);
+  static TextStyle text                         = baseFontFamily.copyWith(fontSize: fontSize, height: 1.2, color: textColor);
   static TextStyle textSmall                    = text.copyWith(fontSize: fontSizeSmall);
   static TextStyle textMuted                    = text.copyWith(color: const Color.fromRGBO(112,122,138, 1));
   static TextStyle title                        = text.copyWith(fontWeight: FontWeight.w600, fontSize: fontSizeMedium);
@@ -62,8 +64,8 @@ class Styles {
   static const double buttonHeight              = 32;
   static const double buttonMediumHeight        = 56;
   static const double buttonLargeHeight         = 72;
-  static const double buttonPaddingHorizontal   = 15;
-  static const double buttonPaddingVertical     = 18;
+  static const double buttonPaddingHorizontal   = 16;
+  static const double buttonPaddingVertical     = 10;
 
   static TextStyle button                       = text.copyWith(fontWeight: FontWeight.w600);
   static TextStyle buttonDisabled               = button.copyWith(color: textSecondary);

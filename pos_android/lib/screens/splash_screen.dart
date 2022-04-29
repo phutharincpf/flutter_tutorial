@@ -1,5 +1,6 @@
 import 'package:flutter_device_type/flutter_device_type.dart';
 import 'package:pos_android/constants/styles.dart';
+import 'package:pos_android/controllers/master_controller.dart';
 import 'package:pos_android/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,6 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _validateAuthenticationAndRedirect(context);
-
 
     return Scaffold(
       backgroundColor: Styles.mainColor,
@@ -28,7 +28,13 @@ class SplashScreen extends StatelessWidget {
       Get.offAllNamed(Routes.errorDevice);
     }
     else {
+      _updateDataFromMaster();
       Get.offAllNamed(Routes.login);
     }
+  }
+
+  void _updateDataFromMaster (){
+    MasterController masterController = Get.find();
+    masterController.updateStatus();
   }
 }

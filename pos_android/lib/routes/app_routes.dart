@@ -17,12 +17,13 @@ abstract class Routes {
   static const payment        = _Paths.payment;
   static const paymentDone    = _Paths.paymentDone;
 
-
   static const errorDevice    = _Paths.errorDevice;
-
 
   // DataMaster
   static const syncDataMaster = _Paths.syncDataMaster;
+
+  static const orderCancel    = _Paths.orderCancel;
+  static const reportPricing  = _Paths.reportPricing;
 }
 
 abstract class _Paths {
@@ -45,4 +46,8 @@ abstract class _Paths {
 
   // menu
   static const syncDataMaster   = '/master/sync';
+  static const orderCancel      = '/order/cancel';
+
+  // report
+  static const reportPricing      = '/report/pricing';
 }

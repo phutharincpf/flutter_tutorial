@@ -6,6 +6,26 @@ import 'package:pos_android/constants/styles.dart';
 import 'package:pos_android/widgets/button_widget.dart';
 
 class ModalWidget extends StatelessWidget {
+  final String? title;
+  final String? text;
+  final String? icon;
+  final bool? isCancel;
+  final String? cancelText;
+  final VoidCallback? onCancel;
+  final bool? isDone;
+  final String? doneText;
+  final VoidCallback? onDone;
+  final VoidCallback? onClose;
+  final bool? isBack;
+  final bool? isClose;
+
+  final double width;
+  final double height;
+  final double? paddingHeader;
+  final double? paddingFooter;
+
+  final Widget? child;
+
   const ModalWidget({
     Key? key,
     this.title,
@@ -22,90 +42,92 @@ class ModalWidget extends StatelessWidget {
     this.height = 400,
     this.isBack = true,
     this.child,
+    this.isClose = true,
+    this.paddingHeader,
+    this.paddingFooter,
   }) : super(key: key);
-
-  final String? title;
-  final String? text;
-  final String? icon;
-  final bool? isCancel;
-  final String? cancelText;
-  final VoidCallback? onCancel;
-  final bool? isDone;
-  final String? doneText;
-  final VoidCallback? onDone;
-  final VoidCallback? onClose;
-  final bool? isBack;
-
-  final double width;
-  final double height;
-  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Center(
-        child: Stack(
-          children: [
-            IntrinsicWidth(
-              child: IntrinsicHeight(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: width,
-                    // minHeight: height,
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Styles.dialogRadius),
-                      color: Colors.white,
+    return _buttonAnimation(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Stack(
+            children: [
+              IntrinsicWidth(
+                child: IntrinsicHeight(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: width,
+                      // minHeight: height,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 40),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Styles.dialogRadius),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: paddingHeader ?? 30),
+                          Expanded(
+                            child: _buildBody(),
+                          ),
+                          isCancel == true || isDone == true
+                              ? const SizedBox(height: Styles.padding)
+                              : Container(),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              _buildIcon(),
-                              _buildTitle(),
-                              _buildText(),
+                              const SizedBox(width: Styles.padding),
+                              _buildBtnCancel(),
+                              SizedBox(
+                                  width: isCancel == true &&
+                                          isDone == true
+                                      ? Styles.padding
+                                      : 0),
+                              _buildBtnDone(),
+                              const SizedBox(width: Styles.padding),
                             ],
                           ),
-                        ),
-                        const SizedBox(height: Styles.padding),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: Styles.padding),
-                            _buildBtnCancel(),
-                            SizedBox(
-                                width: isCancel == true && isDone == true
-                                    ? Styles.padding
-                                    : 0),
-                            _buildBtnDone(),
-                            const SizedBox(width: Styles.padding),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                      ],
+                          SizedBox(height: paddingFooter ?? 30),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            _buildClose(),
-          ],
+              _buildClose(),
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget _buildBody() {
+    if (child != null) {
+      return child!;
+    } else {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          _buildIcon(),
+          _buildTitle(),
+          _buildText(),
+        ],
+      );
+    }
+  }
+
   Widget _buildIcon() {
     double iconSize = 100.0;
 
-    if(icon=='warning'){
+    if (icon == 'warning') {
       return Padding(
         padding: const EdgeInsets.only(bottom: Styles.padding),
         child: SizedBox(
@@ -130,9 +152,9 @@ class ModalWidget extends StatelessWidget {
           ),
         ),
       );
-    } else {
-      return Container();
     }
+
+    return Container();
   }
 
   Widget _buildText() {
@@ -146,9 +168,9 @@ class ModalWidget extends StatelessWidget {
           ),
         ),
       );
-    } else {
-      return Container();
     }
+
+    return Container();
   }
 
   Widget _buildBtnCancel() {
@@ -157,9 +179,7 @@ class ModalWidget extends StatelessWidget {
         ButtonWidget(
           text: cancelText ?? 'ไม่ใช่',
           onClicked: () {
-            if (isBack == true) {
-              Get.back();
-            }
+            _goToBack();
 
             if (onCancel != null) {
               onCancel!();
@@ -181,9 +201,7 @@ class ModalWidget extends StatelessWidget {
         ButtonWidget(
           text: doneText ?? 'ใช่',
           onClicked: () {
-            if (isBack == true) {
-              Get.back();
-            }
+            _goToBack();
 
             if (onDone != null) {
               onDone!();
@@ -199,14 +217,11 @@ class ModalWidget extends StatelessWidget {
   }
 
   Widget _buildClose() {
-    return Positioned(
-      right: 20,
-      top: 20,
-      child: GestureDetector(
+    Widget _icon = Container();
+    if (isClose == true) {
+      _icon = GestureDetector(
         onTap: () {
-          if (isBack == true) {
-            Get.back();
-          }
+          _goToBack();
 
           if (onClose != null) {
             onClose!();
@@ -228,12 +243,24 @@ class ModalWidget extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      );
+    }
+
+    return Positioned(
+      right: 20,
+      top: 20,
+      child: _icon,
     );
   }
 
+  void _goToBack() {
+    if (isBack == true) {
+      Get.back();
+    }
+  }
+
   Widget _buttonWrap(Widget child) {
-    if (isCancel == true && isDone == true) {
+    if (isCancel == true &&isDone == true) {
       return Expanded(child: child);
     } else {
       return ConstrainedBox(
@@ -243,5 +270,23 @@ class ModalWidget extends StatelessWidget {
         child: child,
       );
     }
+  }
+
+  Widget _buttonAnimation({child}) {
+    return TweenAnimationBuilder(
+      duration: const Duration(milliseconds: 100),
+      tween: Tween<double>(begin: .75, end: 1),
+      child: TweenAnimationBuilder(
+        duration: const Duration(milliseconds: 100),
+        tween: Tween<double>(begin: 0, end: 1),
+        child: child,
+        builder: (BuildContext context, double _opacity, Widget? _child) {
+          return Opacity(opacity: _opacity, child: _child);
+        },
+      ),
+      builder: (BuildContext context, double _scale, Widget? _child) {
+        return Transform.scale(scale: _scale, child: child);
+      },
+    );
   }
 }
