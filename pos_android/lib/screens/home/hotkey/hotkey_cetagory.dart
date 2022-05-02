@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pos_android/constants/styles.dart';
+import 'package:pos_android/utils/snackbar.dart';
 import 'package:pos_android/widgets/buttons/button_nav.dart';
 
 class HotkeyCategory extends StatelessWidget {
@@ -24,7 +25,10 @@ class HotkeyCategory extends StatelessWidget {
             horizontal: Styles.padding, vertical: Styles.padding / 2),
         itemCount: menus.length,
         itemBuilder: (BuildContext context, int index) {
-          return ButtonPrimaryOutline(menus[index]['name'], onClicked: () {});
+          return ButtonPrimaryOutline(menus[index]['name'], onClicked: () {
+
+            SnackBarUtil.show(title: 'สำเร็จ!', text: 'รายการสินค้าถูกอัพเดทแล้ว');
+          });
         },
         separatorBuilder: (BuildContext context, int index) =>
         const SizedBox(width: Styles.padding / 2),

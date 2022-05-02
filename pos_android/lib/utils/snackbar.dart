@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos_android/constants/styles.dart';
 
-class SnackBar {
+class SnackBarUtil {
   static final List<Flushbar> flushBars = [];
 
   static void show({
@@ -11,7 +11,7 @@ class SnackBar {
     required String text,
     int? durationSeconds,
     double? width,
-
+    bool isSuccess=true,
   }) {
     Get.snackbar(
       title,
@@ -22,14 +22,14 @@ class SnackBar {
       snackPosition: SnackPosition.TOP,
       titleText: Text(
         title,
-        style: Styles.title.copyWith(color: Colors.black, fontSize: 34),
+        style: Styles.title.copyWith(color: isSuccess ? Styles.colorSuccess: Styles.colorDanger, fontSize: 34),
       ),
       messageText: Text(
         text,
-        style: Styles.subTitle.copyWith(color: Colors.black, fontSize: 26),
+        style: Styles.text.copyWith(color: Styles.colorDark, fontSize: 26),
       ),
       duration: Duration(seconds: durationSeconds ?? 3),
-      margin: const EdgeInsets.only(top: 70),
+      margin: const EdgeInsets.only(top: 10),
       maxWidth: width ?? 300,
       boxShadows: [
         BoxShadow(

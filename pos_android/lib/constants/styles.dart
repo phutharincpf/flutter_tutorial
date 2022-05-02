@@ -40,6 +40,7 @@ class Styles {
   static Color colorInfo                        = const Color.fromRGBO(0, 132, 255, 1);
   static Color colorGrey                        = const Color.fromRGBO(196,196,196, 1);
   static Color colorWarning                     = const Color.fromRGBO(255,193,7, 1);
+  static Color colorDark                        = const Color.fromRGBO(52,58,64, 1);
 
 
   // Font
