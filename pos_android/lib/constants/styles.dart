@@ -23,7 +23,7 @@ class Styles {
   static double fontSizeJumbo                       = 64;
 
   // Colors
-  static Color mainColor                        = Colors.white; // const Color.fromRGBO(240,242,245, 1);
+  static Color mainColor                        = const Color.fromRGBO(240,242,245, 1);
   static Color borderColor                      = const Color.fromRGBO(104, 120, 171, 1);
   static Color textColor                        = const Color.fromRGBO(43,61,152, 1);
   static Color textSecondary                    = const Color.fromRGBO(104, 120, 171, 1);
@@ -80,7 +80,7 @@ class Styles {
   static double btnRadius                       = radius;
 
   // appbar
-  static Color appbarColor                          = const Color.fromRGBO(241, 243, 255, 1);
+  static Color appbarColor                          = Colors.white; // const Color.fromRGBO(241, 243, 255, 1);
   static Color appbarTextColor                      = textColor;
 
   // Drawer

@@ -14,7 +14,7 @@ class UserController extends GetxController {
     // ));
 
     await Future.delayed(const Duration(seconds: 2), () {});
-
+    
     _isWorking.value = false;
     return true;
   }

@@ -7,20 +7,25 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      backgroundColor: const Color.fromRGBO(241, 243, 255, 1),
-      body: Row(
-        children: const [
-          Expanded(
-            flex: 60,
-            child: CarouselWidget(),
-          ),
-          Expanded(
-            flex: 40,
-            child: LoginFormWidget(),
-          ),
-        ],
+    return WillPopScope(
+      onWillPop: () {
+        return Future.value(false);
+      },
+      child: Scaffold(
+        // resizeToAvoidBottomInset: false,
+        backgroundColor: const Color.fromRGBO(241, 243, 255, 1),
+        body: Row(
+          children: const [
+            Expanded(
+              flex: 60,
+              child: CarouselWidget(),
+            ),
+            Expanded(
+              flex: 40,
+              child: LoginFormWidget(),
+            ),
+          ],
+        ),
       ),
     );
   }

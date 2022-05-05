@@ -17,8 +17,7 @@ class MasterController extends GetxController {
     MasterStatusPayload(message: 'ข้อมูลสินค้าล่าสุดวันที่ 12/02/2564 12:14', statusCode: 200),
   ];
 
-  double get statusPercent =>
-      (100 * (_currentStep.value + 1)) / statusList.length;
+  double get statusPercent => (100 * (_currentStep.value + 1)) / statusList.length;
 
   bool get isModal => _showModal.value;
   bool get processing => _processing.value;
@@ -31,9 +30,9 @@ class MasterController extends GetxController {
     _showSnackBar = false;
     Get.dialog(const MasterModal());
 
-    if( !_coolDown ){
-      updateStatus();
-    }
+    // if( !_coolDown ){
+    updateStatus();
+    // }
 
   }
 

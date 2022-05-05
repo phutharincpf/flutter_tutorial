@@ -12,6 +12,7 @@ abstract class Routes {
   static const logout         = _Paths.logout;
 
   // basic
+  static const landing        = _Paths.landing;
   static const home           = _Paths.home;
   static const cart           = _Paths.cart;
   static const payment        = _Paths.payment;
@@ -39,6 +40,7 @@ abstract class _Paths {
   static const errorDevice      = '/error/device';
 
   // basic
+  static const landing          = '/landing';
   static const home             = '/home';
   static const cart             = '/cart';
   static const payment          = '/payment';

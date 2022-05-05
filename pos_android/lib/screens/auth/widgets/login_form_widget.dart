@@ -49,7 +49,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           parameters: {'type': 'login'},
         );
 
-        Get.offAllNamed(Routes.home);
+        Get.offAllNamed(Routes.landing);
       } else {
         Get.dialog(const ModalWidget(
           title: 'เข้าสู่ระบบไม่สำเร็จ',

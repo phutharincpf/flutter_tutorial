@@ -52,6 +52,14 @@ class UIController extends GetxController {
 
     _navigationList.add(
       MenuPayload(
+        nameLocal: '',
+        route: '',
+        isDivider: true,
+      ),
+    );
+
+    _navigationList.add(
+      MenuPayload(
         nameLocal: 'ออกจากระบบ',
         route: Routes.logout,
         svgPath: PosIcons.logoutSVGPath,
