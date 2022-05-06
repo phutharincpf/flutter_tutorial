@@ -164,7 +164,7 @@ class HomeScreen extends StatelessWidget {
   _buildButton(bool isResponsive) {
     TextStyle _textButton = Styles.text.copyWith(color: Colors.white, fontWeight: FontWeight.w600, fontSize: isResponsive ? Styles.fontSize.sp : Styles.fontSize);
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
