@@ -133,6 +133,10 @@ class HomeScreen extends StatelessWidget {
           TextFieldWidget(style: textFieldStyle),
           const SizedBox(height: 20),
           _buildButton(isResponsive),
+          const SizedBox(height: 20),
+          _buildButtonMedium(isResponsive),
+          const SizedBox(height: 20),
+          _buildButtonLarge(isResponsive),
         ],
       ),
     );
@@ -156,6 +160,12 @@ class HomeScreen extends StatelessWidget {
           Text(status, style: textStyle ?? Styles.text),
           const SizedBox(height: 5),
           const SeparatorWidget(),
+
+          const SizedBox(height: 5),
+          const SeparatorWidget(),
+
+          const SizedBox(height: 5),
+          const SeparatorWidget(),
         ],
       ),
     );
@@ -164,7 +174,7 @@ class HomeScreen extends StatelessWidget {
   _buildButton(bool isResponsive) {
     TextStyle _textButton = Styles.text.copyWith(color: Colors.white, fontWeight: FontWeight.w600, fontSize: isResponsive ? Styles.fontSize.sp : Styles.fontSize);
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -182,6 +192,62 @@ class HomeScreen extends StatelessWidget {
         ),
         child: Text(
           'Button',
+          style: _textButton,
+        ),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  _buildButtonMedium(bool isResponsive) {
+    TextStyle _textButton = Styles.text.copyWith(color: Colors.white, fontWeight: FontWeight.w600, fontSize: isResponsive ? 32.sp : 32);
+
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          primary: Styles.colorPrimary,
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          minimumSize: const Size(0, 0),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 1,
+              color: Styles.colorPrimary,
+            ),
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        child: Text(
+          'Button Medium',
+          style: _textButton,
+        ),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  _buildButtonLarge(bool isResponsive) {
+    TextStyle _textButton = Styles.text.copyWith(color: Colors.white, fontWeight: FontWeight.w600, fontSize: isResponsive ? 44.sp : 44);
+
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          primary: Styles.colorPrimary,
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          minimumSize: const Size(0, 0),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 1,
+              color: Styles.colorPrimary,
+            ),
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        child: Text(
+          'Button Large',
           style: _textButton,
         ),
         onPressed: () {},
